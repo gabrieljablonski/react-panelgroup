@@ -10,6 +10,7 @@ export default class PanelGroup extends React.Component {
   static defaultProps = {
     spacing: 1,
     direction: 'row',
+    handleZIndex: undefined,
     panelWidths: [],
     onUpdate: undefined,
     onResizeStart: undefined,
@@ -22,6 +23,7 @@ export default class PanelGroup extends React.Component {
   static propTypes = {
     spacing: PropTypes.number,
     direction: PropTypes.string,
+    handleZIndex: PropTypes.number,
     panelWidths: PropTypes.array,
     children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
     onUpdate: PropTypes.func,
@@ -256,6 +258,7 @@ export default class PanelGroup extends React.Component {
           borderColor={this.props.borderColor}
           key={`divider${index}`}
           panelID={index}
+          handleZIndex={this.props.handleZIndex}
           handleResize={this.handleResize}
           dividerWidth={this.props.spacing}
           direction={this.props.direction}

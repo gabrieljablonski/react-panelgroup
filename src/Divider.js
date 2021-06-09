@@ -5,6 +5,7 @@ export default class Divider extends React.Component {
   static propTypes = {
     dividerWidth: PropTypes.number,
     handleBleed: PropTypes.number,
+    handleZIndex: PropTypes.number,
     direction: PropTypes.string,
     panelID: PropTypes.number.isRequired,
     handleResize: PropTypes.func.isRequired,
@@ -17,6 +18,7 @@ export default class Divider extends React.Component {
   static defaultProps = {
     dividerWidth: 1,
     handleBleed: 4,
+    handleZIndex: 100,
     direction: undefined,
     showHandles: false,
     borderColor: undefined,
@@ -169,7 +171,7 @@ export default class Divider extends React.Component {
         top: this.props.direction === 'column' ? this.getHandleOffset() : 0,
         backgroundColor: this.props.showHandles ? 'rgba(0,128,255,0.25)' : 'auto',
         cursor: this.props.direction === 'row' ? 'col-resize' : 'row-resize',
-        zIndex: 100
+        zIndex: this.props.handleZIndex,
       }
     };
     Object.assign(style.divider, { backgroundColor: this.props.borderColor });
